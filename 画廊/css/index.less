@@ -1,0 +1,161 @@
+@charset "utf-8";
+@import 'ku';
+@import 'for_improve';
+.restBaidu();
+*{padding: 0;margin: 0;}
+.wrap{
+    width:100%;
+    height: 600px;
+    position: absolute;
+    top:50%;
+    margin-top: -300px;
+    background-color: #ccc;
+    overflow: hidden;
+    .3d();
+}
+//海报样式
+.photo{
+    position: absolute;
+    width: 260px;
+    height: 320px;
+    z-index: 1;
+    .box-sh();
+    .tras();
+    .side{
+       width: 100%;
+       height: 100%;
+       background-color: #eee;
+       position: absolute; 
+       top: 0;
+       left: 0; 
+       padding: 20px;//本来会撑破的使用下面这个就解决了这个问题
+       box-sizing: border-box;//它的内容和它的padding不会超过它的边框
+    }
+    .side-front{
+          .image{
+              width:100%;
+              height: 250px;
+              overflow: hidden;
+          }  
+          img{
+              width: 100%;
+              
+          }
+          .caption{
+             text-align: center;
+             font-size: 16px;
+             line-height: 50px; 
+          }
+    }
+    .side-back{
+        .desc{
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5em;
+        }
+    }
+    
+}
+//当前选中的样式
+.photo_center{
+   left: 50%;
+   top:50%;
+   margin: -150px 0 0 -130px;
+   z-index: 999;    
+}
+
+//负责翻转
+.photo-wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    //支持3D
+    -webkit-transform-style:preserve-3d;
+    -webkit-transition:all .6s ;
+    .side-front{
+        //定义移以及沿着Y轴旋转
+       -webkit-transform: rotateY(0deg); 
+    }
+    .side-back{
+       -webkit-transform: rotateY(180deg);   
+    }
+    .side{
+        //当元素不面向屏幕是隐藏
+        -webkit-backface-visibility: hidden;
+    }
+}
+.photo-front{
+    .photo-wrap{
+        -webkit-transform: rotateY(0deg); 
+    }
+}
+.photo-back{
+    .photo-wrap{
+     -webkit-transform: rotateY(180deg); 
+     }
+}
+//控制按钮样式
+@font-face{
+    font-family: 'icons';
+    src: url('glyphicons-halflings-regular.woff') format('woff');
+    font-weight: normal;
+    font-size: normal;
+}
+.nav{
+    position: absolute;
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+    left: 10%;
+    bottom: 0px;
+    z-index: 999;
+    opacity: 0.5;
+    text-align: center;
+    background-color: #fff;
+    //普通样式
+    .i{
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: #CCCCCC;
+        transform: scale(0.58);
+        transition: all 0.3s;
+        &:after{
+            content: '\e600';
+            font-family: 'icons';
+            font-size: 80%;
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+        }
+    }
+    //选中样式
+    .i_current{
+        transform: scale(1);
+        &:after{
+            opacity: 1;
+        }
+    }
+    //背面样式
+    .i_back{
+        -webkit-transform: rotateY(-180deg);
+        background-color: #555;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

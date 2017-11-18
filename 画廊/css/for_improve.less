@@ -1,0 +1,17 @@
+@charset 'utf-8';
+@3d_z:800px;
+//3D效果的基础
+.3d(){
+    -moz-perspective:@3d_z;
+ -webkit-perspective: @3d_z;
+  perspective:@3d_z;
+}
+.box-sh(){
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.1);
+     box-shadow: 0 0 1px rgba(0,0,0,0.1);
+}
+.tras(){
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
